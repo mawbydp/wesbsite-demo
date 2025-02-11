@@ -172,7 +172,7 @@
 										</div>
 										<div class="col-12">
 											<ul class="actions">
-												<li><input type="submit" value="Send Message" /></li>
+												<li><input type="submit" id="sendMessageBtn" value="Send Message" /></li>
 												<li><input type="reset" value="Clear form" /></li>
 											</ul>
 										</div>
@@ -211,6 +211,15 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+			<script>
+				document.addEventListener("DOMContentLoaded", function () {
+					document.getElementById("sendMessageBtn").addEventListener("click", function (event) {
+						event.preventDefault(); // Prevent form submission
+						alert("Your message has been sent!");
+					});
+				});
+			</script>
+			
 
 	</body>
 </html>
