@@ -150,6 +150,9 @@
 				</div>
 
 			<!-- Footer -->
+			<script src="https://js-eu1.hsforms.net/forms/embed/145119213.js" defer></script>
+			<div class="hs-form-frame" data-region="eu1" data-form-id="79fe19fe-0524-4b77-8067-94e60d9072a6" data-portal-id="145119213"></div>
+			
 				<div id="footer-wrapper">
 					<div id="footer" class="container">
 						<header class="major">
@@ -204,22 +207,44 @@
 
 		</div>
 
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.dropotron.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
-			<script>
-				document.addEventListener("DOMContentLoaded", function () {
-					document.getElementById("sendMessageBtn").addEventListener("click", function (event) {
-						event.preventDefault(); // Prevent form submission
-						alert("Your message has been sent!");
-					});
-				});
-			</script>
-			
+		<!-- Pop-up Modal -->
+		<div id="popupModal" class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<p>Your message has been sent successfully!</p>
+			</div>
+		</div>
 
+		<!-- Scripts -->
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/js/jquery.dropotron.min.js"></script>
+		<script src="assets/js/browser.min.js"></script>
+		<script src="assets/js/breakpoints.min.js"></script>
+		<script src="assets/js/util.js"></script>
+		<script src="assets/js/main.js"></script>
+
+		<!-- JavaScript for Modal -->
+		<script>
+			document.addEventListener("DOMContentLoaded", function () {
+				var modal = document.getElementById("popupModal");
+				var btn = document.getElementById("sendMessageBtn");
+				var span = document.getElementsByClassName("close")[0];
+
+				btn.addEventListener("click", function (event) {
+					event.preventDefault(); // Prevent form submission
+					modal.style.display = "block"; // Show the modal
+				});
+
+				span.addEventListener("click", function () {
+					modal.style.display = "none"; // Hide the modal when clicking the close button
+				});
+
+				window.addEventListener("click", function (event) {
+					if (event.target === modal) {
+						modal.style.display = "none"; // Hide if clicking outside the modal
+					}
+				});
+			});
+		</script>
 	</body>
 </html>
